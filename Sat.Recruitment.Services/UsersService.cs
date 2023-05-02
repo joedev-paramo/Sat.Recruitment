@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using Sat.Recruitment.Core.Domain;
 using Sat.Recruitment.Data;
 using Sat.Recruitment.Services.Responses;
 
+[assembly: InternalsVisibleTo("Sat.Recruitment.Test")]
 namespace Sat.Recruitment.Services
 {
     /// <summary>
