@@ -1,3 +1,13 @@
+# Refactor details
+- Updated target framework to .Net 6 (last LTS).
+- Added new projects to separate Data Access and Business Logic (Services).
+- Added StyleCop analyzers for code quality.
+- Added NLog for logging.
+- Full refactor on API's controllers to use the new architecture.
+  - Services project includes specific methods for the Email Address Normalization and Bonus logic.
+  - In the controller, was added an endpoint to get all the users.
+- Refactor unit tests, using Moq.
+
 # Sat.Recruitment
 
 A developer went on vacation and several issues arose in the project that needed to be resolved.
