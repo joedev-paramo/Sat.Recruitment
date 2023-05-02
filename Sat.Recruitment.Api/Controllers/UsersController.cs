@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
+using Sat.Recruitment.Api.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,16 +18,20 @@ namespace Sat.Recruitment.Api.Controllers
     [Route("[controller]")]
     public partial class UsersController : ControllerBase
     {
+        private readonly ILoggerManager _logger;
 
         private readonly List<User> _users = new List<User>();
-        public UsersController()
+        public UsersController(ILoggerManager logger)
         {
+            _logger = logger;
         }
 
         [HttpPost]
         [Route("/create-user")]
         public async Task<Result> CreateUser(string name, string email, string address, string phone, string userType, string money)
         {
+            _logger.LogInformation("Entering CreateUser method.");
+
             var errors = "";
 
             ValidateErrors(name, email, address, phone, ref errors);
