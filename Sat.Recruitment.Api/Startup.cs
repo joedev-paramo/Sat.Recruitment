@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sat.Recruitment.Api.Infrastructure;
+using Sat.Recruitment.Data;
+using Sat.Recruitment.Services;
 
 namespace Sat.Recruitment.Api
 {
@@ -20,6 +22,8 @@ namespace Sat.Recruitment.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ILoggerManager, LoggerManager>();
+            services.AddScoped<IUsersRepo, UsersRepo>();
+            services.AddScoped<IUsersService, UsersService>();
             services.AddControllers();
             services.AddSwaggerGen();
         }
